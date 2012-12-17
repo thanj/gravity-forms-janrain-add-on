@@ -17,14 +17,18 @@
  */
 function quilt_providers_stylesheet() {
 
-	if ( !isset( $_GET['page'] ) || $_GET['page'] !== 'gf_edit_forms' )
+	if ( !isset( $_GET['page'] ) || !in_array( $_GET['page'], array( 'gf_edit_forms', 'janrain_settings' ) ) )
 		return;
+
 	wp_enqueue_style( 'quilt-providers', 'http://cdn.quilt.janrain.com/2.1.4/providers.css' );
 
 	// Providers css file for older version of IE
-//	wp_register_style( 'quilt-providers-ie', 'http://cdn.quilt.janrain.com/2.1.4/providers-ie.css' );
-//	$GLOBALS['wp_styles']->add_data( 'providers-ie', 'conditional', 'lte IE 8' );
-//	wp_enqueue_style( 'quilt-providers-ie' );
+	wp_register_style( 'quilt-providers-ie', 'http://cdn.quilt.janrain.com/2.1.4/providers-ie.css' );
+	$GLOBALS['wp_styles']->add_data( 'quilt-providers-ie', 'conditional', 'lte IE 8' );
+	wp_enqueue_style( 'quilt-providers-ie' );
+
+	if ( $_GET['page'] === 'janrain_settings' )
+		wp_enqueue_script( 'engage-integration-settings', plugins_url( 'settings.js', __FILE__ ) );
 }
 
 add_action( 'admin_enqueue_scripts', 'quilt_providers_stylesheet' );
@@ -41,9 +45,10 @@ function janrain_engage_field_prepop_settings( $position, $form_id ) {
 ?>
 	<li class="janrain_engage_prefill field_setting">
 		<input type="checkbox" class="social_prefill" />
-		<label class="inline" for="field_social_prefill">Prefill this field from social login profile:
-			<?php gform_tooltip( 'field_social_prefill' ); ?>
+		<label class="inline" for="field_social_prefill">
+			<?php _e( 'Prefill this field from social login profile:', 'gforms_janrain' ); ?>
 		</label>
+		<?php gform_tooltip( 'field_social_prefill' ); ?>
 		<select disabled="disabled" class="field_social_prefill_with" >
 	<?php
 		require_once( 'field-list.php' );
@@ -66,7 +71,8 @@ add_action( 'gform_field_standard_settings', 'janrain_engage_field_prepop_settin
  * (needs i18n)
  */
 function janrain_engage_gforms_tooltips( $tooltips ) {
-	$tooltips['social_prefill'] = "<h6>Prefill from Social Profile</h6>If a social login field is defined, you can select a field from the user's social profile to prefill this field with, once they authenticate.";
+	$tooltips['field_social_prefill'] = '<h6>' .  __( 'Prefill from Social Profile', 'gforms_janrain' ) . '</h6>' .
+		__( 'If a social login field is defined, you can select a field from the user\'s social profile to prefill this field with, once they authenticate.', 'gforms_janrain' );
 	return $tooltips;
 }
 
@@ -185,13 +191,22 @@ function janrain_jump_settings_page() {
 	if ( !empty( $settings['appurl'] ) ) {
 		$providers = wp_remote_post( trailingslashit( $settings['appurl'] ) . 'api/v2/get_available_providers' );
 		$signin_providers = json_decode( $providers['body'] );
-		if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
+		if ( is_wp_error( $signin_providers ) )
+			$providers_text = print_r( $signin_providers, true );
+		else if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
 			$providers_text = '';
 			foreach ( $signin_providers->signin as $signin_provider ) {
 				$providers_text .= '
 					<p>
-						<input type="checkbox" name="janrain_settings[providers]['.$signin_provider.']" ' . checked( in_array( $signin_provider, $settings['providers'] ), true, false ) . '/> '
-					. $signin_provider .'</p>';
+						<input id="janrain_settings_provider_'.$signin_provider.'" type="checkbox" name="janrain_settings[providers]['.$signin_provider.']" ' . checked( in_array( $signin_provider, $settings['providers'] ), true, false ) . '/>
+						<label for="janrain_settings_provider_'.$signin_provider.'">
+							<span class="janrain-provider-icon-32 ' . (
+								( in_array( $signin_provider, $settings['providers'] ) )?
+									  'janrain-provider-icon-' . $signin_provider
+									: 'janrain-provider-icon-grayscale-' . $signin_provider
+								  ) . '" ></span> '. ucwords( $signin_provider ) . '
+						</label>
+					</p>';
 			}
 		}
 	}
@@ -204,58 +219,58 @@ function janrain_jump_settings_page() {
 		'whitelist_url' => parse_url( admin_url(), PHP_URL_HOST )
 	);
 
-	echo <<<HTML
+	echo '
 <div class="wrap">
-	<h2>Janrain Engage Integration</h2>
-	<h3>Janrain App Configuration</h3>
-	<p class="description">You will need to enter the Application ID and URL for your Engage application. This information can be obtained from your dashboard at <a href="http://rpxnow.com">http://rpxnow.com</a>.</p>
+	<h2>' . __( 'Janrain Engage Integration', 'gforms_janrain' ) .'</h2>
+	<h3>' . __( 'Janrain App Configuration', 'gforms_janrain' ) . '</h3>
+	<p class="description">' . __( 'You will need to enter the Application ID and URL for your Engage application. This information can be obtained from your dashboard at <a href="http://rpxnow.com">http://rpxnow.com</a>.', 'gforms_janrain' ) . '</p>
 	<form action="" method="POST">
-	{$sane_settings['nonce']}
+	' . $sane_settings['nonce'] . '
 	<table class="form-table">
 		<tr valign="top">
 			<th scope="row">
-				<label for="appurl">Application Domain</label>
+				<label for="appurl">' . __( 'Application Domain', 'gforms_janrain' ) . '</label>
 			</th>
 			<td>
-				<input type="text" class="regular-text" name="janrain_settings[appurl]" value="{$sane_settings['appurl']}" />
+				<input type="text" class="regular-text" name="janrain_settings[appurl]" value="' . esc_attr( $settings['appurl'] ) . '" />
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row">
-				<label for="appid">App ID</label>
+				<label for="appid">' . __( 'App ID', 'gforms_janrain' ) . '</label>
 			</th>
 			<td>
-				<input type="text" class="regular-text" name="janrain_settings[appid]" value="{$sane_settings['appid']}" />
+				<input type="text" class="regular-text" name="janrain_settings[appid]" value="' . esc_attr( $settings['appid'] ) . '" />
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row">
-				<label for="secret">API Key (Secret)</label>
+				<label for="secret">' . __( 'API Key (Secret)', 'gforms_janrain' ) . '</label>
 			</th>
 			<td>
-				<input type="text" class="regular-text" name="janrain_settings[secret]" value="{$sane_settings['secret']}" />
+				<input type="text" class="regular-text" name="janrain_settings[secret]" value="' . esc_attr( $settings['secret'] ) . '" />
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row">
-				<label for="secret">Sign-In Providers</label>
+				<label for="secret">' . __( 'Sign-In Providers', 'gforms_janrain' ) . '</label>
 			</th>
 			<td>
-				{$providers_text}
+				' . $providers_text . '
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row">
 			</th>
 			<td>
-				<input type="submit" class="button-primary" value="Save settings" />
+				<input type="submit" class="button-primary" value="' . __( 'Save settings', 'gforms_janrain' ) .'" />
 			</td>
 		</tr>
 	</table>
-	<p><b>Important:</b> You will also have to make sure the domain <b>{$sane_settings['whitelist_url']}</b> is added to the domain whitelist for your application.</p>
+	<p>' . sprintf( __( '<b>Important:</b> You will also have to make sure the domain <b>%s</b> is added to the domain whitelist for your application.', 'gforms_janrain' ), parse_url( admin_url(), PHP_URL_HOST ) ) . '</p>
 	</form>
 </div>
-HTML;
+';
 
 }
 
@@ -268,7 +283,7 @@ function janrain_engage_widget_field_admin_button( $field_groups ) {
 		if ( $group['name'] == 'advanced_fields' )
 			$group['fields'][] = array(
 				'class' => 'button',
-				'value' => 'Social Login',
+				'value' => __( 'Social Login', 'gforms_janrain' ),
 				'onclick' => "StartAddField('janrain_engage')"
 			);
 
