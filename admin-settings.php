@@ -208,7 +208,7 @@ function janrain_jump_settings_page() {
 
 			if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
 
-				$providers_text = '';
+				$providers_text = '<div style="-moz-column-width:16em;-moz-column-gap:1em;-webkit-column-width:16em;-webkit-column-gap:1em">';
 				foreach ( $signin_providers->signin as $signin_provider ) {
 					$providers_text .= '
 						<p>
@@ -222,6 +222,7 @@ function janrain_jump_settings_page() {
 							</label>
 						</p>';
 				}
+				$providers_text .= '</div>';
 			}
 		}
 	}
