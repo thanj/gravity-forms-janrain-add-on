@@ -174,6 +174,9 @@ function janrain_jump_settings_page() {
 			)
 		);
 
+		echo '<div id="message" class="message updated"><p>'
+			. __( 'Janrain Engage app settings updated.', 'gforms_janrain' ) . '</p></div>';
+
 	}
 
 	$defaults = array(
@@ -185,39 +188,43 @@ function janrain_jump_settings_page() {
 
 	$settings = wp_parse_args( get_option( 'janrain_settings' ), $defaults );
 
-	$providers_text = '<p class="description">You will have to enter your app info before choosing available providers.</p>';
+	$providers_text = '<p class="description">'
+		. __( 'You will have to enter your app info before choosing available providers.', 'gforms_janrain' )
+		. '</p>';
 
 	// Get list of available providers for app, if app info has been entered correctly
 	if ( !empty( $settings['appurl'] ) ) {
+
 		$providers = wp_remote_post( trailingslashit( $settings['appurl'] ) . 'api/v2/get_available_providers' );
-		$signin_providers = json_decode( $providers['body'] );
-		if ( is_wp_error( $signin_providers ) )
-			$providers_text = print_r( $signin_providers, true );
-		else if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
-			$providers_text = '';
-			foreach ( $signin_providers->signin as $signin_provider ) {
-				$providers_text .= '
-					<p>
-						<input id="janrain_settings_provider_'.$signin_provider.'" type="checkbox" name="janrain_settings[providers]['.$signin_provider.']" ' . checked( in_array( $signin_provider, $settings['providers'] ), true, false ) . '/>
-						<label for="janrain_settings_provider_'.$signin_provider.'">
-							<span class="janrain-provider-icon-32 ' . (
-								( in_array( $signin_provider, $settings['providers'] ) )?
-									  'janrain-provider-icon-' . $signin_provider
-									: 'janrain-provider-icon-grayscale-' . $signin_provider
-								  ) . '" ></span> '. ucwords( $signin_provider ) . '
-						</label>
-					</p>';
+		// In case of HTTP error, display information about the issue
+		if ( is_wp_error( $providers ) )
+			$providers_text = '<p>' . __( 'An error occurred while checking your app settings:', 'gforms_janrain' )
+			. '<br>' . print_r( $providers, true ) . '</p>';
+
+		// If provider info was successfully retrieved, build checklist here
+		else {
+
+			$signin_providers = json_decode( $providers['body'] );
+
+			if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
+
+				$providers_text = '';
+				foreach ( $signin_providers->signin as $signin_provider ) {
+					$providers_text .= '
+						<p>
+							<input id="janrain_settings_provider_'.$signin_provider.'" type="checkbox" name="janrain_settings[providers]['.$signin_provider.']" ' . checked( in_array( $signin_provider, $settings['providers'] ), true, false ) . '/>
+							<label for="janrain_settings_provider_'.$signin_provider.'">
+								<span class="janrain-provider-icon-32 ' . (
+									( in_array( $signin_provider, $settings['providers'] ) )?
+										  'janrain-provider-icon-' . $signin_provider
+										: 'janrain-provider-icon-grayscale-' . $signin_provider
+									  ) . '" ></span> '. ucwords( $signin_provider ) . '
+							</label>
+						</p>';
+				}
 			}
 		}
 	}
-
-	$sane_settings = array(
-		'nonce' => wp_nonce_field( 'janrain_settings', '_wpnonce', true, false ),
-		'appid' => esc_attr( $settings['appid'] ),
-		'appurl' => esc_attr( esc_url( $settings['appurl'] ) ),
-		'secret' => esc_attr( $settings['secret'] ),
-		'whitelist_url' => parse_url( admin_url(), PHP_URL_HOST )
-	);
 
 	echo '
 <div class="wrap">
@@ -225,7 +232,7 @@ function janrain_jump_settings_page() {
 	<h3>' . __( 'Janrain App Configuration', 'gforms_janrain' ) . '</h3>
 	<p class="description">' . __( 'You will need to enter the Application ID and URL for your Engage application. This information can be obtained from your dashboard at <a href="http://rpxnow.com">http://rpxnow.com</a>.', 'gforms_janrain' ) . '</p>
 	<form action="" method="POST">
-	' . $sane_settings['nonce'] . '
+	' . wp_nonce_field( 'janrain_settings', '_wpnonce', true, false ) . '
 	<table class="form-table">
 		<tr valign="top">
 			<th scope="row">
