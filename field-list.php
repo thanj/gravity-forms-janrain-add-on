@@ -152,8 +152,12 @@ class Prefill {
 	/*
 	 * Job Title from most recent organization in profile
 	 *
+	 * includes fix for Salesforce, which returns "organizations" in a different
+	 * format from all other providers.
 	 */
 	function title( $profile ) {
+		if ( $profile->profile->providerName === 'Salesforce' )
+			return '';
 		if ( isset( $profile->merged_poco->organizations ) &&
 				is_array( $profile->merged_poco->organizations ) ) {
 			$job = $profile->merged_poco->organizations[0];
@@ -164,8 +168,12 @@ class Prefill {
 	/*
 	 * Company from most recent organization in profile
 	 *
+	 * includes fix for Salesforce, which returns "organizations" in a different
+	 * format from all other providers.
 	 */
 	function company( $profile ) {
+		if ( $profile->profile->providerName === 'Salesforce' )
+			return '';
 		if ( isset( $profile->merged_poco->organizations ) &&
 				is_array( $profile->merged_poco->organizations ) ) {
 			$job = $profile->merged_poco->organizations[0];
