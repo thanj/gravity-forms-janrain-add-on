@@ -17,31 +17,31 @@ class Prefill {
 	public static $core_fields = array(
 		'given' => array(
 			'name' => 'First Name',
-			'function' => array( Prefill, 'given_name' ),
+			'function' => array( 'Prefill', 'given_name' ),
 		),
 		'family' => array(
 			'name' => 'Last Name',
-			'function' => array( Prefill, 'family_name' ),
+			'function' => array( 'Prefill', 'family_name' ),
 		),
 		'formatted' => array(
 			'name' => 'Formatted Name',
-			'function' => array( Prefill, 'formatted_name' ),
+			'function' => array( 'Prefill', 'formatted_name' ),
 		),
 		'email' => array(
 			'name' => 'Email Address',
-			'function' => array( Prefill, 'email' ),
+			'function' => array( 'Prefill', 'email' ),
 		),
 		'phone' => array(
 			'name' => 'Primary Phone',
-			'function' => array( Prefill, 'phone' ),
+			'function' => array( 'Prefill', 'phone' ),
 		),
 		'title' => array(
 			'name' => 'Position',
-			'function' => array( Prefill, 'title' ),
+			'function' => array( 'Prefill', 'title' ),
 		),
 		'company' => array(
 			'name' => 'Company',
-			'function' => array( Prefill, 'company' ),
+			'function' => array( 'Prefill', 'company' ),
 		),
 	);
 
@@ -452,358 +452,358 @@ class Prefill {
 
 		'Display' => array(
 			'name' => 'Display',
-			'function' => array( Prefill, 'Display' ),
+			'function' => array( 'Prefill', 'Display' ),
 		),
 		'Gender' => array(
 			'name' => 'Gender',
-			'function' => array( Prefill, 'Gender' ),
+			'function' => array( 'Prefill', 'Gender' ),
 		),
 		'Profile' => array(
 			'name' => 'Profile',
-			'function' => array( Prefill, 'Profile' ),
+			'function' => array( 'Prefill', 'Profile' ),
 		),
 		'Preferred' => array(
 			'name' => 'Preferred',
-			'function' => array( Prefill, 'Preferred' ),
+			'function' => array( 'Prefill', 'Preferred' ),
 		),
 		'Homepage' => array(
 			'name' => 'Homepage',
-			'function' => array( Prefill, 'Homepage' ),
+			'function' => array( 'Prefill', 'Homepage' ),
 		),
 		'Time' => array(
 			'name' => 'Time',
-			'function' => array( Prefill, 'Time' ),
+			'function' => array( 'Prefill', 'Time' ),
 		),
 		'Verified' => array(
 			'name' => 'Verified',
-			'function' => array( Prefill, 'Verified' ),
+			'function' => array( 'Prefill', 'Verified' ),
 		),
 		'Friends' => array(
 			'name' => 'Friends',
-			'function' => array( Prefill, 'Friends' ),
+			'function' => array( 'Prefill', 'Friends' ),
 		),
 		'About' => array(
 			'name' => 'About',
-			'function' => array( Prefill, 'About' ),
+			'function' => array( 'Prefill', 'About' ),
 		),
 		'Accounts' => array(
 			'name' => 'Accounts',
-			'function' => array( Prefill, 'Accounts' ),
+			'function' => array( 'Prefill', 'Accounts' ),
 		),
 		'username,' => array(
 			'name' => 'username,',
-			'function' => array( Prefill, 'username,' ),
+			'function' => array( 'Prefill', 'username,' ),
 		),
 		'Addresses' => array(
 			'name' => 'Addresses',
-			'function' => array( Prefill, 'Addresses' ),
+			'function' => array( 'Prefill', 'Addresses' ),
 		),
 		'Anniversary' => array(
 			'name' => 'Anniversary',
-			'function' => array( Prefill, 'Anniversary' ),
+			'function' => array( 'Prefill', 'Anniversary' ),
 		),
 		'Body' => array(
 			'name' => 'Body',
-			'function' => array( Prefill, 'Body' ),
+			'function' => array( 'Prefill', 'Body' ),
 		),
 		'Books' => array(
 			'name' => 'Books',
-			'function' => array( Prefill, 'Books' ),
+			'function' => array( 'Prefill', 'Books' ),
 		),
 		'Cars' => array(
 			'name' => 'Cars',
-			'function' => array( Prefill, 'Cars' ),
+			'function' => array( 'Prefill', 'Cars' ),
 		),
 		'Children' => array(
 			'name' => 'Children',
-			'function' => array( Prefill, 'Children' ),
+			'function' => array( 'Prefill', 'Children' ),
 		),
 		'Connected' => array(
 			'name' => 'Connected',
-			'function' => array( Prefill, 'Connected' ),
+			'function' => array( 'Prefill', 'Connected' ),
 		),
 		'Current' => array(
 			'name' => 'Current',
-			'function' => array( Prefill, 'Current' ),
+			'function' => array( 'Prefill', 'Current' ),
 		),
 		'Drinker' => array(
 			'name' => 'Drinker',
-			'function' => array( Prefill, 'Drinker' ),
+			'function' => array( 'Prefill', 'Drinker' ),
 		),
 		'Emails' => array(
 			'name' => 'Emails',
-			'function' => array( Prefill, 'Emails' ),
+			'function' => array( 'Prefill', 'Emails' ),
 		),
 		'Ethnicity' => array(
 			'name' => 'Ethnicity',
-			'function' => array( Prefill, 'Ethnicity' ),
+			'function' => array( 'Prefill', 'Ethnicity' ),
 		),
 		'Fashion' => array(
 			'name' => 'Fashion',
-			'function' => array( Prefill, 'Fashion' ),
+			'function' => array( 'Prefill', 'Fashion' ),
 		),
 		'Food' => array(
 			'name' => 'Food',
-			'function' => array( Prefill, 'Food' ),
+			'function' => array( 'Prefill', 'Food' ),
 		),
 		'Happiest' => array(
 			'name' => 'Happiest',
-			'function' => array( Prefill, 'Happiest' ),
+			'function' => array( 'Prefill', 'Happiest' ),
 		),
 		'Heroes' => array(
 			'name' => 'Heroes',
-			'function' => array( Prefill, 'Heroes' ),
+			'function' => array( 'Prefill', 'Heroes' ),
 		),
 		'Humor' => array(
 			'name' => 'Humor',
-			'function' => array( Prefill, 'Humor' ),
+			'function' => array( 'Prefill', 'Humor' ),
 		),
 		'IMS' => array(
 			'name' => 'IMS',
-			'function' => array( Prefill, 'IMS' ),
+			'function' => array( 'Prefill', 'IMS' ),
 		),
 		'InterestedInMeeting' => array(
 			'name' => 'InterestedInMeeting',
-			'function' => array( Prefill, 'InterestedInMeeting' ),
+			'function' => array( 'Prefill', 'InterestedInMeeting' ),
 		),
 		'Interests' => array(
 			'name' => 'Interests',
-			'function' => array( Prefill, 'Interests' ),
+			'function' => array( 'Prefill', 'Interests' ),
 		),
 		'Job' => array(
 			'name' => 'Job',
-			'function' => array( Prefill, 'Job' ),
+			'function' => array( 'Prefill', 'Job' ),
 		),
 		'Languages' => array(
 			'name' => 'Languages',
-			'function' => array( Prefill, 'Languages' ),
+			'function' => array( 'Prefill', 'Languages' ),
 		),
 		'Living' => array(
 			'name' => 'Living',
-			'function' => array( Prefill, 'Living' ),
+			'function' => array( 'Prefill', 'Living' ),
 		),
 		'Looking' => array(
 			'name' => 'Looking',
-			'function' => array( Prefill, 'Looking' ),
+			'function' => array( 'Prefill', 'Looking' ),
 		),
 		'Movies' => array(
 			'name' => 'Movies',
-			'function' => array( Prefill, 'Movies' ),
+			'function' => array( 'Prefill', 'Movies' ),
 		),
 		'Music' => array(
 			'name' => 'Music',
-			'function' => array( Prefill, 'Music' ),
+			'function' => array( 'Prefill', 'Music' ),
 		),
 		'Nickname' => array(
 			'name' => 'Nickname',
-			'function' => array( Prefill, 'Nickname' ),
+			'function' => array( 'Prefill', 'Nickname' ),
 		),
 		'Note' => array(
 			'name' => 'Note',
-			'function' => array( Prefill, 'Note' ),
+			'function' => array( 'Prefill', 'Note' ),
 		),
 		'Organizations' => array(
 			'name' => 'Organizations',
-			'function' => array( Prefill, 'Organizations' ),
+			'function' => array( 'Prefill', 'Organizations' ),
 		),
 		'Pets' => array(
 			'name' => 'Pets',
-			'function' => array( Prefill, 'Pets' ),
+			'function' => array( 'Prefill', 'Pets' ),
 		),
 		'Photos' => array(
 			'name' => 'Photos',
-			'function' => array( Prefill, 'Photos' ),
+			'function' => array( 'Prefill', 'Photos' ),
 		),
 		'Political' => array(
 			'name' => 'Political',
-			'function' => array( Prefill, 'Political' ),
+			'function' => array( 'Prefill', 'Political' ),
 		),
 		'Profile' => array(
 			'name' => 'Profile',
-			'function' => array( Prefill, 'Profile' ),
+			'function' => array( 'Prefill', 'Profile' ),
 		),
 		'Profile' => array(
 			'name' => 'Profile',
-			'function' => array( Prefill, 'Profile' ),
+			'function' => array( 'Prefill', 'Profile' ),
 		),
 		'Profile' => array(
 			'name' => 'Profile',
-			'function' => array( Prefill, 'Profile' ),
+			'function' => array( 'Prefill', 'Profile' ),
 		),
 		'Published' => array(
 			'name' => 'Published',
-			'function' => array( Prefill, 'Published' ),
+			'function' => array( 'Prefill', 'Published' ),
 		),
 		'Quotes' => array(
 			'name' => 'Quotes',
-			'function' => array( Prefill, 'Quotes' ),
+			'function' => array( 'Prefill', 'Quotes' ),
 		),
 		'Relationship' => array(
 			'name' => 'Relationship',
-			'function' => array( Prefill, 'Relationship' ),
+			'function' => array( 'Prefill', 'Relationship' ),
 		),
 		'Relationships' => array(
 			'name' => 'Relationships',
-			'function' => array( Prefill, 'Relationships' ),
+			'function' => array( 'Prefill', 'Relationships' ),
 		),
 		'Religion' => array(
 			'name' => 'Religion',
-			'function' => array( Prefill, 'Religion' ),
+			'function' => array( 'Prefill', 'Religion' ),
 		),
 		'Romance' => array(
 			'name' => 'Romance',
-			'function' => array( Prefill, 'Romance' ),
+			'function' => array( 'Prefill', 'Romance' ),
 		),
 		'Scared' => array(
 			'name' => 'Scared',
-			'function' => array( Prefill, 'Scared' ),
+			'function' => array( 'Prefill', 'Scared' ),
 		),
 		'Sexual' => array(
 			'name' => 'Sexual',
-			'function' => array( Prefill, 'Sexual' ),
+			'function' => array( 'Prefill', 'Sexual' ),
 		),
 		'Smoker' => array(
 			'name' => 'Smoker',
-			'function' => array( Prefill, 'Smoker' ),
+			'function' => array( 'Prefill', 'Smoker' ),
 		),
 		'Sports' => array(
 			'name' => 'Sports',
-			'function' => array( Prefill, 'Sports' ),
+			'function' => array( 'Prefill', 'Sports' ),
 		),
 		'Status' => array(
 			'name' => 'Status',
-			'function' => array( Prefill, 'Status' ),
+			'function' => array( 'Prefill', 'Status' ),
 		),
 		'Tags' => array(
 			'name' => 'Tags',
-			'function' => array( Prefill, 'Tags' ),
+			'function' => array( 'Prefill', 'Tags' ),
 		),
 		'Turn' => array(
 			'name' => 'Turn',
-			'function' => array( Prefill, 'Turn' ),
+			'function' => array( 'Prefill', 'Turn' ),
 		),
 		'Turn' => array(
 			'name' => 'Turn',
-			'function' => array( Prefill, 'Turn' ),
+			'function' => array( 'Prefill', 'Turn' ),
 		),
 		'TV' => array(
 			'name' => 'TV',
-			'function' => array( Prefill, 'TV' ),
+			'function' => array( 'Prefill', 'TV' ),
 		),
 		'Updated' => array(
 			'name' => 'Updated',
-			'function' => array( Prefill, 'Updated' ),
+			'function' => array( 'Prefill', 'Updated' ),
 		),
 		'URLs' => array(
 			'name' => 'URLs',
-			'function' => array( Prefill, 'URLs' ),
+			'function' => array( 'Prefill', 'URLs' ),
 		),
 		'Phone' => array(
 			'name' => 'Phone',
-			'function' => array( Prefill, 'Phone' ),
+			'function' => array( 'Prefill', 'Phone' ),
 		),
 		'Active' => array(
 			'name' => 'Active',
-			'function' => array( Prefill, 'Active' ),
+			'function' => array( 'Prefill', 'Active' ),
 		),
 		'User' => array(
 			'name' => 'User',
-			'function' => array( Prefill, 'User' ),
+			'function' => array( 'Prefill', 'User' ),
 		),
 		'Locale' => array(
 			'name' => 'Locale',
-			'function' => array( Prefill, 'Locale' ),
+			'function' => array( 'Prefill', 'Locale' ),
 		),
 		'Positions' => array(
 			'name' => 'Positions',
-			'function' => array( Prefill, 'Positions' ),
+			'function' => array( 'Prefill', 'Positions' ),
 		),
 		'Verified' => array(
 			'name' => 'Verified',
-			'function' => array( Prefill, 'Verified' ),
+			'function' => array( 'Prefill', 'Verified' ),
 		),
 		'Access' => array(
 			'name' => 'Access',
-			'function' => array( Prefill, 'Access' ),
+			'function' => array( 'Prefill', 'Access' ),
 		),
 		'Type' => array(
 			'name' => 'Type',
-			'function' => array( Prefill, 'Type' ),
+			'function' => array( 'Prefill', 'Type' ),
 		),
 		'Pings' => array(
 			'name' => 'Pings',
-			'function' => array( Prefill, 'Pings' ),
+			'function' => array( 'Prefill', 'Pings' ),
 		),
 		'Relationship' => array(
 			'name' => 'Relationship',
-			'function' => array( Prefill, 'Relationship' ),
+			'function' => array( 'Prefill', 'Relationship' ),
 		),
 		'Google' => array(
 			'name' => 'Google',
-			'function' => array( Prefill, 'Google' ),
+			'function' => array( 'Prefill', 'Google' ),
 		),
 		'Birthday' => array(
 			'name' => 'Birthday',
-			'function' => array( Prefill, 'Birthday' ),
+			'function' => array( 'Prefill', 'Birthday' ),
 		),
 		'Time' => array(
 			'name' => 'Time',
-			'function' => array( Prefill, 'Time' ),
+			'function' => array( 'Prefill', 'Time' ),
 		),
 		'Access' => array(
 			'name' => 'Access',
-			'function' => array( Prefill, 'Access' ),
+			'function' => array( 'Prefill', 'Access' ),
 		),
 		'Verified' => array(
 			'name' => 'Verified',
-			'function' => array( Prefill, 'Verified' ),
+			'function' => array( 'Prefill', 'Verified' ),
 		),
 		'Blood' => array(
 			'name' => 'Blood',
-			'function' => array( Prefill, 'Blood' ),
+			'function' => array( 'Prefill', 'Blood' ),
 		),
 		'Favorite' => array(
 			'name' => 'Favorite',
-			'function' => array( Prefill, 'Favorite' ),
+			'function' => array( 'Prefill', 'Favorite' ),
 		),
 		'Occupation' => array(
 			'name' => 'Occupation',
-			'function' => array( Prefill, 'Occupation' ),
+			'function' => array( 'Prefill', 'Occupation' ),
 		),
 		'Following' => array(
 			'name' => 'Following',
-			'function' => array( Prefill, 'Following' ),
+			'function' => array( 'Prefill', 'Following' ),
 		),
 		'Followers' => array(
 			'name' => 'Followers',
-			'function' => array( Prefill, 'Followers' ),
+			'function' => array( 'Prefill', 'Followers' ),
 		),
 		'Friendships' => array(
 			'name' => 'Friendships',
-			'function' => array( Prefill, 'Friendships' ),
+			'function' => array( 'Prefill', 'Friendships' ),
 		),
 		'Counters' => array(
 			'name' => 'Counters',
-			'function' => array( Prefill, 'Counters' ),
+			'function' => array( 'Prefill', 'Counters' ),
 		),
 		'Name' => array(
 			'name' => 'Name',
-			'function' => array( Prefill, 'Name' ),
+			'function' => array( 'Prefill', 'Name' ),
 		),
 		'Activities' => array(
 			'name' => 'Activities',
-			'function' => array( Prefill, 'Activities' ),
+			'function' => array( 'Prefill', 'Activities' ),
 		),
 		'Offline' => array(
 			'name' => 'Offline',
-			'function' => array( Prefill, 'Offline' ),
+			'function' => array( 'Prefill', 'Offline' ),
 		),
 		'Hometown' => array(
 			'name' => 'Hometown',
-			'function' => array( Prefill, 'Hometown' ),
+			'function' => array( 'Prefill', 'Hometown' ),
 		),
 		'Location' => array(
 			'name' => 'Location',
-			'function' => array( Prefill, 'Location' ),
+			'function' => array( 'Prefill', 'Location' ),
 		),
  */
