@@ -8,7 +8,6 @@
 jQuery(document).ready( function() {
   jQuery('form').on( 'change click blur', 'input[type="checkbox"]',
     function(evt) {
-      console.log( evt, this );
       var label= jQuery(this).next('label').find('span.janrain-provider-icon-32');
       if ( label.length ) {
         if ( this.checked ) {
