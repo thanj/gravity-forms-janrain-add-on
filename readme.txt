@@ -3,7 +3,7 @@ Contributors: goldenapples
 Tags: social login,forms,form prefill
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: trunk
+Stable tag: 0.1b
 License: GPLv2 or later
 
 Integrate Gravity Forms with Janrain Engage social login to pre-fill forms.
@@ -24,7 +24,8 @@ Works with the free Basic app available from Janrain - sign up at
 http://rpxnow.com - although some extended profile data fields are only
 available with the Plus level ($10/mo - see 
 [Janrain Engage Pricing](http://janrain.com/products/engage/engage-pricing/) 
-for more information.
+for more information.)
+
 
 == Installation ==
 
@@ -38,10 +39,12 @@ for more information.
 	prefill for, and set the "Prefill with" value for each of the fields which 
 	you would like to pull info from the social profile.
 
+
 == Frequently Asked Questions ==
 
-= I can't find Facebook/Twitter/other provider in the list of available
-providers. =
+
+= I can't find (Facebook/Twitter/other provider) in the list of available
+providers. = 
 
 Some providers require configuration in order to be available. To use Facebook
 login through Janrain Engage, for example, you will have to create an app on
@@ -53,8 +56,9 @@ to the "Setup Widget" page on your rpxnow.com dashboard (find it under
 sidebar). Each of the providers which requires configuration will have a gray
 gear icon next to it; click that icon and follow the wizard steps.
 
+
 = I want to be able to access a field that a provider offers, but it's not
-populating in my forms. =
+populating in my forms. = 
 
 Some profile fields require requesting extended profile data. You can configure
 the permissions your app requests of the user on an "a la carte" basis from your
@@ -65,14 +69,14 @@ that asking users for too many permissions is more likely to scare them away -
 **NOTE**: some extended profile fields are only available to Plus or higher
 service levels.
 
-= How can I add more prefill fields beyond the default ones? =
+
+= How can I add more prefill fields beyond the default ones? = 
 
 This plugin has been designed to be easy to extend. If you want to add more
-fields, you will need to hook a function to the filter
-`janrain_gforms_profile_data` that defines the name of the field you want to
-add, and the function to get its data. This filter recieves the array of core
-fields as its argument, so if you need to redefine one of the core fields, this
-is the place to do that as well.
+fields, you will need to hook a function to the filter `janrain_gforms_profile_data` 
+that defines the name of the field you want to add, and the function to get its
+data. This filter recieves the array of core fields as its argument, so if you
+need to redefine one of the core fields, this is the place to do that as well.
 
 For example, the following code will make a new field available called
 "religion"; which pulls any data the user has entered as their "religion" on
@@ -91,6 +95,7 @@ Facebook (or any other provider that includes that field):
 	function religion_field( $profile ) {
 		return $profile->merged_poco->religion;
 	}
+
 
 == Screenshots ==
 
