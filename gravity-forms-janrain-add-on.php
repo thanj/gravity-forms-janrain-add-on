@@ -155,15 +155,15 @@ function janrain_engage_widget_script( $form_id ) {
 
 function janrainWidgetOnload() {
     janrain.events.onProviderLoginToken.addHandler(function(tokenResponse) {
-		$.post( '{$app_settings['token_url']}',
+		jQuery.post( '{$app_settings['token_url']}',
 			{ 'token': tokenResponse.token },
 			function( response ) {
 				for ( key in response ) {
-					$('#'+key).val(response[key]);
+					jQuery('#'+key).val(response[key]);
 				}
 			}
 		);
-		$('#janrainEngageEmbed').closest('.gfield').fadeOut();
+		jQuery('#janrainEngageEmbed').closest('.gfield').fadeOut();
 		return true;
     })
 }
