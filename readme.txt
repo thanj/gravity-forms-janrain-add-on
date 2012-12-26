@@ -86,6 +86,7 @@ Facebook (or any other provider that includes that field):
 			'name' => 'Religion',
 			'function' => 'religion_field'
 		);
+		return $fields;
 	}
 
 	function religion_field( $profile ) {
