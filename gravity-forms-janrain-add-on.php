@@ -82,10 +82,10 @@ function janrain_engage_widget_script( $form_id ) {
 
 	$settings = get_option( 'janrain_settings' );
 
-	// Dummy config values for bootstrapping
+	// Config values for client app
 	$app_settings = array(
 		'appid' => $settings['appid'],
-		'appurl' => $settings['appurl'],
+		'appurl' => untrailingslashit( $settings['appurl'] ),
 		'providers' => '[ "' . implode( '", "', $settings['providers'] ) . '" ]',
 		'token_url' => admin_url( 'admin-ajax.php?action=return-token&form='.$form_id ),
 		'count' => count( $settings['providers'] ),
@@ -100,7 +100,7 @@ function janrain_engage_widget_script( $form_id ) {
     /* _______________ can edit below this line _______________ */
 
 	janrain.settings.appId = '{$app_settings['appid']}';
-	janrain.settings.tokenUrl = '{$app_settings['appurl']}';
+	janrain.settings.appUrl = '{$app_settings['appurl']}';
 	janrain.settings.providers = {$app_settings['providers']};
 	janrain.settings.tokenUrl = '{$app_settings['token_url']}';
 	janrain.settings.tokenAction = 'event';
