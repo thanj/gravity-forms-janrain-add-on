@@ -206,23 +206,29 @@ function janrain_jump_settings_page() {
 
 			$signin_providers = json_decode( $providers['body'] );
 
+			$app_url_base = str_replace( array( 'https://', '.rpxnow.com', '/' ), '', $settings['appurl'] );
+
 			if ( isset( $signin_providers->signin ) && is_array( $signin_providers->signin ) ) {
 
 				$providers_text = '<div style="-moz-column-width:16em;-moz-column-gap:1em;-webkit-column-width:16em;-webkit-column-gap:1em">';
 				foreach ( $signin_providers->signin as $signin_provider ) {
 					$providers_text .= '
-						<p>
+						<p class="' . ( in_array( $signin_provider, $settings['providers'] ) ? "janrain-provider-text-color-$signin_provider" : 'description' ) . '">
 							<input id="janrain_settings_provider_'.$signin_provider.'" type="checkbox" name="janrain_settings[providers]['.$signin_provider.']" ' . checked( in_array( $signin_provider, $settings['providers'] ), true, false ) . '/>
-							<label for="janrain_settings_provider_'.$signin_provider.'">
+							<label for="janrain_settings_provider_'.$signin_provider.'" >
 								<span class="janrain-provider-icon-32 ' . (
 									( in_array( $signin_provider, $settings['providers'] ) )?
 										  'janrain-provider-icon-' . $signin_provider
 										: 'janrain-provider-icon-grayscale-' . $signin_provider
-									  ) . '" ></span> '. ucwords( $signin_provider ) . '
+									  ) . '" ></span> &nbsp;'. ucwords( $signin_provider ) . '
 							</label>
 						</p>';
 				}
 				$providers_text .= '</div>';
+				$providers_text .= '<p>' . sprintf(
+					__( 'Provider you wish to use not shown here? Check your <a href="%s">rpxnow dashboard</a> to make sure its enabled there.', 'gforms_janrain' ),
+					"https://rpxnow.com/relying_parties/$app_url_base/setup_widget"
+					) . '</p>';
 			}
 		}
 	}
