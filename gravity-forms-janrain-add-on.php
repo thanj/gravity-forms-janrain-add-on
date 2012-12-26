@@ -26,8 +26,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
+// This is a hack to get around symlink resolving issues, see
+// http://wordpress.stackexchange.com/questions/15202/plugins-in-symlinked-directories
+// Hopefully a better solution will be found in future versions of WordPress.
+if ( isset( $plugin ) )
+	define( 'JANRAIN_GFORMS_DIRECTORY', plugin_dir_url( $plugin ) );
+else define( 'JANRAIN_GFORMS_DIRECTORY', plugin_dir_url( __FILE__ ) );
 
-add_filter( 'gform_field_content', 'janrain_social_signin_gfield', 10, 5 );
+
 
 /**
  * Output of the Engage signin input field
@@ -72,6 +78,8 @@ function janrain_social_signin_gfield( $content, $field, $value, $lead_id, $form
 
 	return $content;
 }
+
+add_filter( 'gform_field_content', 'janrain_social_signin_gfield', 10, 5 );
 
 
 /**

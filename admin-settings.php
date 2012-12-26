@@ -28,7 +28,7 @@ function quilt_providers_stylesheet() {
 	wp_enqueue_style( 'quilt-providers-ie' );
 
 	if ( $_GET['page'] === 'janrain_settings' )
-		wp_enqueue_script( 'engage-integration-settings', plugins_url( 'settings.js', __FILE__ ) );
+		wp_enqueue_script( 'engage-integration-settings', JANRAIN_GFORMS_DIRECTORY . 'settings.js' );
 }
 
 add_action( 'admin_enqueue_scripts', 'quilt_providers_stylesheet' );
