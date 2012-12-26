@@ -103,8 +103,21 @@ Facebook (or any other provider that includes that field):
 
 == Changelog ==
 
+= 0.2 =
+
+* Bugfixes: typos in configuration settings prevented plugin from working with 
+  any apps other than Janrain internal ones. _(a pretty big problem)_
+* Enhancements: Minor display enhancements to plugin settings screen and help text.
+
 = 0.1a = 
 
 *	Initial commit
 
 == Upgrade Notice ==
+
+= 0.2 =
+
+Version 0.2 fixes a critical bug in the app configuration settings which
+prevented the plugin from working with any apps other than internal Janrain
+apps. If you've been trying to get the plugin working without luck, try this
+upgrade. 
