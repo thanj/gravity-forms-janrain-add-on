@@ -3,7 +3,7 @@ Contributors: goldenapples
 Tags: social login,forms,form prefill
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 0.1b
+Stable tag: 0.2
 License: GPLv2 or later
 
 Integrate Gravity Forms with Janrain Engage social login to pre-fill forms.
@@ -42,9 +42,8 @@ for more information.)
 
 == Frequently Asked Questions ==
 
-
-= I can't find (Facebook/Twitter/other provider) in the list of available
-providers. = 
+**I can't find (Facebook/Twitter/other provider) in the list of available
+providers.**
 
 Some providers require configuration in order to be available. To use Facebook
 login through Janrain Engage, for example, you will have to create an app on
@@ -56,9 +55,8 @@ to the "Setup Widget" page on your rpxnow.com dashboard (find it under
 sidebar). Each of the providers which requires configuration will have a gray
 gear icon next to it; click that icon and follow the wizard steps.
 
-
-= I want to be able to access a field that a provider offers, but it's not
-populating in my forms. = 
+**I want to be able to access a field that a provider offers, but it's not
+populating in my forms.**
 
 Some profile fields require requesting extended profile data. You can configure
 the permissions your app requests of the user on an "a la carte" basis from your
@@ -69,8 +67,7 @@ that asking users for too many permissions is more likely to scare them away -
 **NOTE**: some extended profile fields are only available to Plus or higher
 service levels.
 
-
-= How can I add more prefill fields beyond the default ones? = 
+**How can I add more prefill fields beyond the default ones?**
 
 This plugin has been designed to be easy to extend. If you want to add more
 fields, you will need to hook a function to the filter `janrain_gforms_profile_data` 
@@ -81,7 +78,6 @@ need to redefine one of the core fields, this is the place to do that as well.
 For example, the following code will make a new field available called
 "religion"; which pulls any data the user has entered as their "religion" on
 Facebook (or any other provider that includes that field):
-
 	
 	add_filter( 'janrain_gforms_profile_data', 'add_religion_field' );
 	
