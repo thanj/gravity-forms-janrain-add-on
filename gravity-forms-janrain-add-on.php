@@ -119,7 +119,7 @@ function janrain_engage_widget_script( $form_id ) {
 	janrain.settings.fontColor = '#666666';
 	janrain.settings.fontFamily = 'inherit';
 	janrain.settings.backgroundColor = 'transparent';
-	janrain.settings.noReturnExperience = 'true';
+	janrain.settings.noReturnExperience = true;
 	janrain.settings.width = '100%';
 	janrain.settings.borderColor = 'transparent';
 	janrain.settings.borderRadius = '10';
