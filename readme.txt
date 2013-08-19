@@ -3,7 +3,7 @@ Contributors: goldenapples
 Tags: social login,forms,form prefill
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 
 Integrate Gravity Forms with Janrain Engage social login to pre-fill forms.
@@ -33,8 +33,8 @@ for more information.)
 	directory of your WordPress installation and then activate the Plugin from
 	Plugins page.
 2.	Enter your Engage app info (which can be found on your dashboard at
-	rpxnow.com) on the settings page (**Forms > Janrain Settings**). Choose the
-	providers you would like to enable social signin there.
+	dashboard.janrain.com) on the settings page (**Forms > Janrain Settings**). 
+	Choose the providers you would like to enable social signin from there.
 3.	Add "Social Login" fields to any forms you would like to enable social
 	prefill for, and set the "Prefill with" value for each of the fields which 
 	you would like to pull info from the social profile.
@@ -50,7 +50,7 @@ login through Janrain Engage, for example, you will have to create an app on
 Facebook, and give those credentials to your Engage app. 
 
 Luckily, there are current step-by-step directions on the Engage dashboard. Go
-to the "Setup Widget" page on your rpxnow.com dashboard (find it under
+to the "Setup Widget" page on your Janrain dashboard (find it under
 **Deployment > Sign-in for Web**; open the **Providers** section of the
 sidebar). Each of the providers which requires configuration will have a gray
 gear icon next to it; click that icon and follow the wizard steps.
@@ -103,6 +103,16 @@ Facebook (or any other provider that includes that field):
 
 
 == Changelog ==
+
+= 0.3 =
+
+* Bugfixes: Fixed Javascript error that was making it impossible to update field settings
+  using Chrome browser in recent versions of WordPress
+* Enhancements: Added more providers that have been added to the Janrain
+  product since this plugin was last updated, including Google+, Instagram,
+  XING, and MYDIGIPASS.COM.
+* Updated some help text and links in admin settings pages.
+
 
 = 0.2 =
 

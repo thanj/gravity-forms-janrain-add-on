@@ -4,7 +4,7 @@ Plugin Name: Gravity Forms Janrain Add-on
 Description: Integrate Gravity Forms with Janrain Engage social login to pre-fill forms.
 Author: janrain, goldenapples
 Author URI: http://janrain.com
-Version: 0.2
+Version: 0.3
 License: GPL V2 or higher
 
 ================================================================================
