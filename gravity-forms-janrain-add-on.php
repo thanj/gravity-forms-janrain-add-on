@@ -9,7 +9,7 @@ License: GPL V2 or higher
 
 ================================================================================
 
-Copyright 2012 Janrain, Inc.
+Copyright 2012-2013 Janrain, Inc.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -177,3 +177,5 @@ require_once( plugin_dir_path( __FILE__ ) . 'field-list.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'admin-settings.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'ajax-response.php' );
 
+
+// vi:sw=5 sts=5 noexpandtab

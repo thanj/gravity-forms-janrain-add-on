@@ -74,11 +74,13 @@ add_action( 'gform_field_standard_settings', 'janrain_engage_field_prepop_settin
  */
 function janrain_engage_gforms_tooltips( $tooltips ) {
 	$tooltips['field_social_prefill'] = '<h6>' .  __( 'Prefill from Social Profile', 'gforms_janrain' ) . '</h6>' .
-		__( 'If a social login field is defined, you can select a field from the user\'s social profile to prefill this field with, once they authenticate.', 'gforms_janrain' );
+        __( 'If a social login field is defined, you can select a field from the user\'s ' .
+			 'social profile to prefill this field with, once they authenticate.', 'gforms_janrain' );
 	return $tooltips;
 }
 
 add_filter( 'gform_tooltips', 'janrain_engage_gforms_tooltips' );
+
 
 /**
  * Common Javascript run on the gf_edit_forms page, to initialize the new fields
@@ -310,3 +312,4 @@ function janrain_engage_widget_field_admin_button( $field_groups ) {
 
 add_action( 'gform_add_field_buttons', 'janrain_engage_widget_field_admin_button' );
 
+// vi:sw=5 sts=5 noexpandtab

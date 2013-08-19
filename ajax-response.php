@@ -9,6 +9,7 @@
  * @author	janrain
  */
 
+
 /**
  * On receiving login token, retrieve all social data available
  *
@@ -51,9 +52,9 @@ function janrain_gforms_retrieve_userdata() {
 	exit;
 }
 
-
 add_action( 'wp_ajax_return-token', 'janrain_gforms_retrieve_userdata' );
 add_action( 'wp_ajax_nopriv_return-token', 'janrain_gforms_retrieve_userdata' );
+
 
 /**
  * Format profile data returned into format required for pre-fill
@@ -83,3 +84,6 @@ function map_profile_to_form_fields( $profile, $form_id ) {
 	return $return_array;
 
 }
+
+
+// vi:sw=5 sts=5 noexpandtab
