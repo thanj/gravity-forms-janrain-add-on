@@ -226,7 +226,7 @@ function janrain_jump_settings_page() {
 				}
 				$providers_text .= '</div>';
 				$providers_text .= '<p>' . sprintf(
-					__( 'Provider you wish to use not shown here? Check your <a href="%s">rpxnow dashboard</a> to make sure its enabled there.', 'gforms_janrain' ),
+					__( 'Provider you wish to use not shown here? Check your <a href="%s">Janrain dashboard</a> to make sure its enabled there.', 'gforms_janrain' ),
 					"https://rpxnow.com/relying_parties/$app_url_base/setup_widget"
 					) . '</p>';
 			}
@@ -237,7 +237,7 @@ function janrain_jump_settings_page() {
 <div class="wrap">
 	<h2>' . __( 'Janrain Engage Integration', 'gforms_janrain' ) .'</h2>
 	<h3>' . __( 'Janrain App Configuration', 'gforms_janrain' ) . '</h3>
-	<p class="description">' . __( 'You will need to enter the Application ID and URL for your Engage application. This information can be obtained from your dashboard at <a href="http://rpxnow.com">http://rpxnow.com</a>.', 'gforms_janrain' ) . '</p>
+	<p class="description">' . __( 'You will need to enter the Application ID and URL for your Engage application. This information can be obtained from your dashboard at <a href="http://dashboard.janrain.com">dashboard.janrain.com</a>.', 'gforms_janrain' ) . '</p>
 	<form action="" method="POST">
 	' . wp_nonce_field( 'janrain_settings', '_wpnonce', true, false ) . '
 	<table class="form-table">
