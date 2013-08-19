@@ -106,7 +106,6 @@ function janrain_gforms_editor_script(){
 	jQuery('.social_prefill').on( 'click', function() {
 		SetFieldProperty( 'socialPrefill', jQuery(this).is(':checked') );
 		$jSelect = jQuery(this).closest('li').find('select.field_social_prefill_with');
-        console.log( this, $jSelect );
 		if ( jQuery(this).is(':checked') ) {
 			$jSelect.prop( 'disabled', false );
 			SetFieldProperty( 'socialPrefillWith', $jSelect.val() );
