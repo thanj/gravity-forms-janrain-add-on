@@ -20,10 +20,10 @@ function quilt_providers_stylesheet() {
 	if ( !isset( $_GET['page'] ) || !in_array( $_GET['page'], array( 'gf_edit_forms', 'janrain_settings' ) ) )
 		return;
 
-	wp_enqueue_style( 'quilt-providers', 'http://cdn.quilt.janrain.com/2.1.4/providers.css' );
+	wp_enqueue_style( 'quilt-providers', 'http://cdn.quilt.janrain.com/2.2.5/providers.css' );
 
 	// Providers css file for older version of IE
-	wp_register_style( 'quilt-providers-ie', 'http://cdn.quilt.janrain.com/2.1.4/providers-ie.css' );
+	wp_register_style( 'quilt-providers-ie', 'http://cdn.quilt.janrain.com/2.2.5/providers-ie.css' );
 	$GLOBALS['wp_styles']->add_data( 'quilt-providers-ie', 'conditional', 'lte IE 8' );
 	wp_enqueue_style( 'quilt-providers-ie' );
 
