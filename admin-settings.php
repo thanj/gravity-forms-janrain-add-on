@@ -33,6 +33,7 @@ function quilt_providers_stylesheet() {
 
 add_action( 'admin_enqueue_scripts', 'quilt_providers_stylesheet' );
 
+
 /**
  * Display the option to "prefill this field/ from".
  *
@@ -64,6 +65,7 @@ function janrain_engage_field_prepop_settings( $position, $form_id ) {
 }
 
 add_action( 'gform_field_standard_settings', 'janrain_engage_field_prepop_settings', 10, 2 );
+
 
 /**
  * Tooltips for the relevant fields added by this plugin
@@ -100,13 +102,14 @@ function janrain_gforms_editor_script(){
 
 	// Update the form meta json object when these fields are updated
 	jQuery('.social_prefill').on( 'click', function() {
-		SetFieldProperty( 'socialPrefill', this.checked);
-		$jSelect = jQuery('select.field_social_prefill_with');
-		if ( this.checked ) {
-			$jSelect.removeAttr('disabled');
+		SetFieldProperty( 'socialPrefill', jQuery(this).is(':checked') );
+		$jSelect = jQuery(this).closest('li').find('select.field_social_prefill_with');
+        console.log( this, $jSelect );
+		if ( jQuery(this).is(':checked') ) {
+			$jSelect.prop( 'disabled', false );
 			SetFieldProperty( 'socialPrefillWith', $jSelect.val() );
 		} else {
-			$jSelect.attr( 'disabled', 'disabled' );
+			$jSelect.prop( 'disabled', true );
 			SetFieldProperty( 'socialPrefillWith', '' );
 		}
 	});
